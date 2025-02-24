@@ -77,6 +77,17 @@ namespace Airport_Ticket_Booking.CsvOperations
                     while ((line = reader.ReadLine()) != null)
                     {
                         var coulmns = line.Split(',');
+                        try
+                        {
+                            DateTime.Parse(coulmns[6]);
+                            int.Parse(coulmns[1]);
+                            int.Parse(coulmns[2]);
+                            int.Parse(coulmns[3]);
+                        }
+                        catch (Exception e) {
+                            Message.ErrorMessage(e.Message);
+                            continue;
+                        }
                         var f = new Flight(coulmns[0], new Dictionary<_FlightClass, int> {
                                                             { _FlightClass.ECONOMY,int.Parse( coulmns[1]) },
                                                             { _FlightClass.BUSINESS,int.Parse( coulmns[2]) },

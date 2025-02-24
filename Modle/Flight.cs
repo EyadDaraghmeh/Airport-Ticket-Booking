@@ -15,7 +15,7 @@ namespace Airport_Ticket_Booking.Modle
     {
         [Required(ErrorMessage = "Flight number cannot be empty")]
         public string _flightNo { get; set; }
-
+        
         public Dictionary<_FlightClass, int> price { get; set; }
         [Required(ErrorMessage = "Departure Country cannot be empty")]
 
@@ -24,8 +24,10 @@ namespace Airport_Ticket_Booking.Modle
         public string destinationCountry { get; set; }
         [Required(ErrorMessage = "Departure Date cannot be empty")]
         [MinDate]
+        [DataType(DataType.Date,ErrorMessage ="gf")]
 
         public DateTime departureDate { get; set; }
+
         [Required(ErrorMessage = "Departure Airport cannot be empty")]
 
         public string departureAirport { get; set; }
