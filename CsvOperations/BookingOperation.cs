@@ -1,5 +1,7 @@
 ﻿using Airport_Ticket_Booking.EnumClass;
+using Airport_Ticket_Booking.ErrorMessage;
 using Airport_Ticket_Booking.Modle;
+using Airport_Ticket_Booking.View.PassengerView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,15 +17,21 @@ namespace Airport_Ticket_Booking.CsvOperations
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Booking.csv");
             string line;
             List<Booking> bookings = new List<Booking>();
-            using(StreamReader  reader = new StreamReader(filePath))
-            {
-                while ((line = reader.ReadLine()) != null)
+            try {
+                using (StreamReader reader = new StreamReader(filePath))
                 {
-                    var coulmns = line.Split(',');
-                    var b = new Booking(coulmns[0], coulmns[1], coulmns[2], coulmns[3],int.Parse(coulmns[4]));
-                    bookings.Add(b);
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var coulmns = line.Split(',');
+                        var b = new Booking(coulmns[0], coulmns[1], coulmns[2], coulmns[3], int.Parse(coulmns[4]));
+                        bookings.Add(b);
+                    }
                 }
             }
+            catch (Exception e) {
+                Message.ErrorMessage(e.Message);
+            }
+          
             return bookings;
         }
 
@@ -40,7 +48,14 @@ namespace Airport_Ticket_Booking.CsvOperations
             var f = Enum.Parse<FlightClass._FlightClass>(fligtClass.ToUpper());
             var price = flight.price[f];
             string newLine = $"{Id},{passenger.Id},{flight._flightNo},{fligtClass},{price}";
-            File.AppendAllText(filePath, newLine + Environment.NewLine);
+            try {
+                File.AppendAllText(filePath, newLine + Environment.NewLine);
+            }
+            catch(Exception e) {
+                Message.ErrorMessage(e.Message);
+                Home._Home(passenger);
+            }
+            
         }
     }
 }

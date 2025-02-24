@@ -42,19 +42,27 @@ namespace Airport_Ticket_Booking.CsvOperations
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "flights.csv");
             List<Flight> flights = new List<Flight>();
             string line;
-            using(StreamReader reader = new StreamReader(filePath))
+            try
             {
-                while ((line=reader.ReadLine())!=null)
+                using (StreamReader reader = new StreamReader(filePath))
                 {
-                    var coulmns=line.Split(',');
-                    var f=new Flight(coulmns[0], new Dictionary<_FlightClass, int> {
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        var coulmns = line.Split(',');
+                        var f = new Flight(coulmns[0], new Dictionary<_FlightClass, int> {
                                                             { _FlightClass.ECONOMY,int.Parse( coulmns[1]) },
                                                             { _FlightClass.BUSINESS,int.Parse( coulmns[2]) },
                                                             { _FlightClass.FIRSTCLASS,int.Parse( coulmns[3]) }
-                                                        }, coulmns[4], coulmns[5], DateTime.Parse( coulmns[6]), coulmns[7], coulmns[8]  );
-                    flights.Add( f );
+                                                        }, coulmns[4], coulmns[5], DateTime.Parse(coulmns[6]), coulmns[7], coulmns[8]);
+                        flights.Add(f);
+                    }
                 }
             }
+            catch(Exception e) {
+                Message.ErrorMessage(e.Message);
+
+            }
+
 
             return flights;
         }
