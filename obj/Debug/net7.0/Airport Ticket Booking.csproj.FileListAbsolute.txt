@@ -1,0 +1,14 @@
+D:\C#\Airport Ticket Booking\bin\Debug\net7.0\Airport Ticket Booking.exe
+D:\C#\Airport Ticket Booking\bin\Debug\net7.0\Airport Ticket Booking.deps.json
+D:\C#\Airport Ticket Booking\bin\Debug\net7.0\Airport Ticket Booking.runtimeconfig.json
+D:\C#\Airport Ticket Booking\bin\Debug\net7.0\Airport Ticket Booking.dll
+D:\C#\Airport Ticket Booking\bin\Debug\net7.0\Airport Ticket Booking.pdb
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.AssemblyInfoInputs.cache
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.AssemblyInfo.cs
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.csproj.CoreCompileInputs.cache
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.dll
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\refint\Airport Ticket Booking.dll
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.pdb
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\Airport Ticket Booking.genruntimeconfig.cache
+D:\C#\Airport Ticket Booking\obj\Debug\net7.0\ref\Airport Ticket Booking.dll
